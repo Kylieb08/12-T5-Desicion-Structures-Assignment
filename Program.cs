@@ -11,6 +11,8 @@
         {
             int degree;
 
+
+
             Console.WriteLine("Please enter a degree between 0 and 360");
 
             while (!int.TryParse(Console.ReadLine(), out degree))
@@ -31,6 +33,24 @@
             }
 
             Console.WriteLine($"You entered {degree} degrees");
+
+            if (degree <= 45 || degree >= 315)
+            {
+                Console.WriteLine("North");
+            }
+
+            else if (degree <= 135 && degree >= 46)
+            {
+                Console.WriteLine("East");
+            }
+
+            else if (degree <= 225 && degree >= 136)
+            {
+                Console.WriteLine("South");
+            }
+
+            else
+                Console.WriteLine("West");
         }
     }
 }
