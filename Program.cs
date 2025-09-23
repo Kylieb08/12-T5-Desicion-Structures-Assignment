@@ -49,7 +49,7 @@
                 Console.WriteLine("South");
             }
 
-            else
+            else // <= 314 && >= 226
                 Console.WriteLine("West");
         }
     }
