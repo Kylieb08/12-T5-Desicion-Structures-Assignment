@@ -6,13 +6,12 @@
         {
             Compass();
             ParkingGarageCost();
+            Hurricane();
         }
 
         public static void Compass()
         {
             int degree;
-
-
 
             Console.WriteLine("Please enter a degree between 0 and 360");
 
@@ -30,7 +29,6 @@
 
                 else
                     degree = degree % 360;
-
             }
 
             Console.WriteLine($"You entered {degree} degrees");
@@ -82,6 +80,48 @@
 
                 Console.WriteLine($"You were parked for {hoursParked} hour(s)");
                 Console.WriteLine($"Total parking cost: {totalCost.ToString("C")}");
+            }
+        }
+
+        public static void Hurricane()
+        {
+            int category;
+
+            Console.WriteLine("There's a hurricane coming!! What category is it?");
+            while (!int.TryParse(Console.ReadLine(), out category) || category < 1 || category > 5)
+            {
+                Console.WriteLine("I don't think that's a hurricane category");
+                Console.WriteLine("What category is the hurricane that approaches us right now?");
+            }
+
+            Console.WriteLine();
+
+            switch (category)
+            {
+                case 1:
+                    Console.WriteLine("That hurricane could have wind speeds anywhere between 119-153 kilometers per hour!");
+                    Console.WriteLine("Which is the equivalent of 64-82 knots or 74-95 miles per hour!");
+                    break;
+
+                case 2:
+                    Console.WriteLine("That hurricane could have wind speeds anywhere between 154-177 kilometers per hour!");
+                    Console.WriteLine("Which is the equivalent of 83-95 knots or 96-110 miles per hour!");
+                    break;
+
+                case 3:
+                    Console.WriteLine("That hurricane could have wind speeds anywhere between 178-209 kilometers per hour!");
+                    Console.WriteLine("Which is the equivalent of 96-113 knots or 111-130 miles per hour!");
+                    break;
+
+                case 4:
+                    Console.WriteLine("That hurricane could have wind speeds anywhere between 210-249 kilometers per hour!");
+                    Console.WriteLine("Which is the equivalent of 114-135 knots or 131-155 miles per hour!");
+                    break;
+
+                case 5:
+                    Console.WriteLine("That hurricane has wind speeds greater than 249 kilometers per hour!");
+                    Console.WriteLine("Which is the equivalent of 135 knots or 130 miles per hour!");
+                    break;
             }
         }
     }
