@@ -4,37 +4,72 @@
     {
         static void Main(string[] args)
         {
-            string userChoice;
+            string userChoice, playAgain;
+            bool compassRun = false, parkingRun = false, hurricaneRun = false, done = false;
 
-            Console.WriteLine("What would you like to run?");
-            Console.WriteLine("---------------------------");
-            Console.WriteLine();
-            Console.WriteLine("1. Compass");
-            Console.WriteLine("2. Parking Garage Cost Calculator");
-            Console.WriteLine("3. Hurricane Wind Speed Display");
-            userChoice = Console.ReadLine();
-            while (userChoice != "1" && userChoice != "2" && userChoice != "3")
+            while (!done)
             {
-                Console.WriteLine("Invalid input. Please try again");
+                while (!compassRun || !parkingRun || !hurricaneRun)
+                {
+                    Console.WriteLine("What would you like to run? (Each thing can only run once)");
+                    Console.WriteLine("----------------------------------------------------------");
+                    Console.WriteLine();
+                    Console.WriteLine("1. Compass");
+                    Console.WriteLine("2. Parking Garage Cost Calculator");
+                    Console.WriteLine("3. Hurricane Wind Speed Display");
+                    userChoice = Console.ReadLine();
+
+                    while (userChoice != "1" && userChoice != "2" && userChoice != "3")
+                    {
+                        Console.WriteLine("Invalid input. Please try again");
+                    }
+
+                    switch (userChoice)
+                    {
+                        case "1":
+                            compassRun = true;
+                            Console.Clear();
+                            Compass();
+                            break;
+
+                        case "2":
+                            parkingRun = true;
+                            Console.Clear();
+                            ParkingGarageCost();
+                            break;
+
+                        case "3":
+                            hurricaneRun = true;
+                            Console.Clear();
+                            Hurricane();
+                            break;
+                    }
+                }
+
+                Console.WriteLine("Would you like to play again?");
+                playAgain = Console.ReadLine();
+                while (playAgain.ToLower() != "y" && playAgain.ToLower() != "yes" && playAgain.ToLower() != "n" && playAgain.ToLower() != "no")
+                {
+                    Console.WriteLine("Invalid input. Please try again");
+                }
+
+                if (playAgain.ToLower() == "y" || playAgain.ToLower() == "yes")
+                {
+                    Console.Clear();
+                    compassRun = false;
+                    parkingRun = false;
+                    hurricaneRun = false;
+                }
+
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Goodbye");
+                    done = true;
+                }
             }
-
-            switch (userChoice)
-            {
-                case "1":
-                    Console.Clear();
-                    Compass();
-                    break;
-
-                case "2":
-                    Console.Clear();
-                    ParkingGarageCost();
-                    break;
-
-                case "3":
-                    Console.Clear();
-                    Hurricane();
-                    break;
-            }
+            
+                
         }
 
         public static void Compass()
@@ -78,6 +113,11 @@
 
             else // <= 314 && >= 226
                 Console.WriteLine("West");
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         public static void ParkingGarageCost()
@@ -109,6 +149,11 @@
                 Console.WriteLine($"You were parked for {hoursParked} hour(s)");
                 Console.WriteLine($"Total parking cost: {totalCost.ToString("C")}");
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         public static void Hurricane()
@@ -151,6 +196,11 @@
                     Console.WriteLine("Which is the equivalent of 135 knots or 130 miles per hour!");
                     break;
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
