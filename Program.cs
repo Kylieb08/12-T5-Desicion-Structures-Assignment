@@ -115,7 +115,7 @@
                 Console.WriteLine("West");
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press ENTER to continue");
             Console.ReadLine();
             Console.Clear();
         }
@@ -151,7 +151,7 @@
             }
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press ENTER to continue");
             Console.ReadLine();
             Console.Clear();
         }
@@ -198,7 +198,7 @@
             }
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press ENTER to continue");
             Console.ReadLine();
             Console.Clear();
         }
