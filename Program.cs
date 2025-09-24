@@ -4,9 +4,37 @@
     {
         static void Main(string[] args)
         {
-            Compass();
-            ParkingGarageCost();
-            Hurricane();
+            string userChoice;
+
+            Console.WriteLine("What would you like to run?");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine();
+            Console.WriteLine("1. Compass");
+            Console.WriteLine("2. Parking Garage Cost Calculator");
+            Console.WriteLine("3. Hurricane Wind Speed Display");
+            userChoice = Console.ReadLine();
+            while (userChoice != "1" && userChoice != "2" && userChoice != "3")
+            {
+                Console.WriteLine("Invalid input. Please try again");
+            }
+
+            switch (userChoice)
+            {
+                case "1":
+                    Console.Clear();
+                    Compass();
+                    break;
+
+                case "2":
+                    Console.Clear();
+                    ParkingGarageCost();
+                    break;
+
+                case "3":
+                    Console.Clear();
+                    Hurricane();
+                    break;
+            }
         }
 
         public static void Compass()
@@ -31,7 +59,7 @@
                     degree = degree % 360;
             }
 
-            Console.WriteLine($"You entered {degree} degrees");
+            Console.WriteLine($"You entered {degree} degree(s)");
 
             if (degree <= 45 || degree >= 315)
             {
